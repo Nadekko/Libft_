@@ -6,12 +6,11 @@
 /*   By: andjenna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 12:02:52 by andjenna          #+#    #+#             */
-/*   Updated: 2023/11/06 17:05:55 by andjenna         ###   ########.fr       */
+/*   Updated: 2023/11/07 03:00:10 by andjenna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include "libft.h"
-#include <string.h>
+#include "libft.h"
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
@@ -41,7 +40,7 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	return (dest);
 }
 
-/*#include <stdio.h>
+/*
 
 int	main(void)
 {

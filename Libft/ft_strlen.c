@@ -6,11 +6,11 @@
 /*   By: andjenna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 16:21:39 by andjenna          #+#    #+#             */
-/*   Updated: 2023/11/02 16:25:24 by andjenna         ###   ########.fr       */
+/*   Updated: 2023/11/07 03:01:13 by andjenna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include "libft.h"
+#include "libft.h"
 
 int	ft_strlen(char *str)
 {
@@ -22,8 +22,7 @@ int	ft_strlen(char *str)
 	return (len);
 }
 
-/*#include <stdio.h>
-
+/*
 int	main(void)
 {
 	char	*str;

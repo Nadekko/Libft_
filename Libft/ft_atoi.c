@@ -1,37 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: andjenna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/02 16:26:02 by andjenna          #+#    #+#             */
-/*   Updated: 2023/11/07 03:00:28 by andjenna         ###   ########.fr       */
+/*   Created: 2023/11/07 04:19:08 by andjenna          #+#    #+#             */
+/*   Updated: 2023/11/07 15:07:51 by andjenna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void *s, int c, size_t n)
+int	ft_atoi(const char *nptr)
 {
-	unsigned char	*str;
+	int	neg;
+	int	res;
 
-	str = s;
-	while (n > 0)
+	res = 0;
+	neg = 1;
+	while ((*nptr >= 9 && *nptr <= 13) || *nptr == 32)
+		nptr++;
+	if (*nptr == '+' || *nptr == '-')
 	{
-		*str = c;
-		str++;
-		n--;
+		if (*nptr == '-')
+			neg -= neg;
+		nptr++;
 	}
-	return (s);
+	while (*nptr >= '0' && *nptr <= '9')
+	{
+		res = res * 10 + (*nptr - 48);
+		nptr++;
+	}
+	return (res * neg);
 }
 
-/*
-int	main(void)
+/*int	main(int ac, char **av)
 {
-	char	str[] = "Hello, World !";
-	printf("before memset() : %s\n", str);
-	ft_memset(str, '*', 3);
-	printf("After memset() : %s\n", str);
+	if (ac == 2)
+	printf("my_atoi : %d\n", ft_atoi(av[1]));
+	printf("reel atoi : %d\n", atoi(av[1]));
 	return (0);
 }*/

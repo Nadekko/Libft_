@@ -1,34 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isascii.c                                       :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: andjenna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/02 14:59:03 by andjenna          #+#    #+#             */
-/*   Updated: 2023/11/07 02:58:29 by andjenna         ###   ########.fr       */
+/*   Created: 2023/11/07 15:38:43 by andjenna          #+#    #+#             */
+/*   Updated: 2023/11/07 16:03:09 by andjenna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isascii(int c)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	return (c >= 0 && c <= 127);
+	while (n-- > 0)
+	{
+		if (*s1 != *s2)
+			return (*s1 - *s2);
+		if (*s1 == '\0')
+			return (0);
+		s1++;
+		s2++;
+	}
+	return (0);
 }
 
-/*
-int	main(void)
+/*int	main(void)
 {
-	char	c;
+	char s1[] = "ABC";
+	char s2[] = "ABCDEF";
+	int	i = ft_strncmp(s1, s2, 4);
+	//int	a = strncmp(s1, s2, 4);
 
-	c = 65;
-	printf("\nResult when ascii is passed : %d", ft_isascii(c));
-	c = 125;
-	printf("\nResult when ascii is passed : %d\n", ft_isascii(c));
-	c = -1;
-	printf("Result when non-ascii is passed : %d\n", ft_isascii(c));
-	c = -125;
-	printf("Result when non-ascii is passed : %d\n", ft_isascii(c));
+	if (i < 0)
+		printf("s1 is less than s2\n");
+	else if (i > 0)
+		printf("s2 is less than s1\n");
+	else
+		printf("s1 is equal to s2\n");
+	
 	return (0);
 }*/

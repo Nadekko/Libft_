@@ -1,34 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isascii.c                                       :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: andjenna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/02 14:59:03 by andjenna          #+#    #+#             */
-/*   Updated: 2023/11/07 02:58:29 by andjenna         ###   ########.fr       */
+/*   Created: 2023/11/07 04:58:52 by andjenna          #+#    #+#             */
+/*   Updated: 2023/11/07 15:38:11 by andjenna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isascii(int c)
+char	*ft_strrchr(const char *s, int c)
 {
-	return (c >= 0 && c <= 127);
+	const char	*ptr;
+
+	ptr = s;
+	while (*ptr)
+		ptr++;
+	if (c == '\0')
+		return ((char *)ptr);
+	while (--ptr >= s)
+	{
+		if (c == *ptr)
+			return ((char *) ptr);
+	}
+	return (NULL);
 }
 
-/*
-int	main(void)
+/*int	main(void)
 {
-	char	c;
+	char s[] = "some,data,in,comas";
+	char *comma = strrchr(s, ',');
+	printf("%s\n", comma);
 
-	c = 65;
-	printf("\nResult when ascii is passed : %d", ft_isascii(c));
-	c = 125;
-	printf("\nResult when ascii is passed : %d\n", ft_isascii(c));
-	c = -1;
-	printf("Result when non-ascii is passed : %d\n", ft_isascii(c));
-	c = -125;
-	printf("Result when non-ascii is passed : %d\n", ft_isascii(c));
+	char t[] = "some,data,in,comas";
+	char *comma2 = ft_strrchr(t, ',');
+	printf("%s\n", comma2);
 	return (0);
 }*/

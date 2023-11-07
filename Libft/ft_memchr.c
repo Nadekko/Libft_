@@ -1,45 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: andjenna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/06 11:34:26 by andjenna          #+#    #+#             */
-/*   Updated: 2023/11/07 02:59:28 by andjenna         ###   ########.fr       */
+/*   Created: 2023/11/07 17:55:33 by andjenna          #+#    #+#             */
+/*   Updated: 2023/11/07 19:24:48 by andjenna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dest, const void *src, size_t n)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	const char	*s;
-	char		*d;
-	size_t		i;
+	size_t	i;
 
-	s = src;
-	d = dest;
 	i = 0;
-	while (i < n)
+	while (n-- > 0)
 	{
-		d[i] = s[i];
+		if (((char *)s)[i] == c)
+			return ((void *)(s + i));
 		i++;
 	}
-	d[i] = '\0';
-	return (dest);
+	return (NULL);
 }
 
-/*
-int	main(void)
+/*int	main(void)
 {
-	char src[] = "Hellllllllo, World !";
-	char dest[30];
-	char idest[10];
+	const char	*str = "Looking for character 'f'";
+	const char	ch = 'f';
 
-	ft_memcpy(dest, src, 30);
-	printf("Copied string is : %s\n", dest);
-	ft_memcpy(idest, src, 5);
-	printf("Coped string is : %s\n", idest);
+	printf("str = %s\n\n", str);
+	printf("NOT MINE >> 
+		Remaining string after '%c' : %s\n", ch, (char *)memchr(str, ch, 20));
+	printf("MINE >> 
+		Remaining string after '%c' : %s\n", ch, (char *)ft_memchr(str, ch, 20));
 	return (0);
 }*/

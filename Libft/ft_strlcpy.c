@@ -6,60 +6,43 @@
 /*   By: andjenna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 17:07:37 by andjenna          #+#    #+#             */
-/*   Updated: 2023/11/06 17:58:02 by andjenna         ###   ########.fr       */
+/*   Updated: 2023/11/07 15:09:11 by andjenna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include "libft.h"
-#include <stddef.h>
+#include "libft.h"
 
-/*size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
 	size_t	i;
 
 	i = 0;
-	while (i < size)
+	while (i < size - 1 && src[i] != '\0')
 	{
-		if (*src != '\0')
-			*dst++ = *src++;
-		else
-			break;
+		dst[i] = src[i];
+		i++;
 	}
-	*dst = '\0';
+	if (size > 0)
+	{
+		dst[i] = '\0';
+		while (src[i] != '\0')
+			i++;
+	}
 	return (i);
+}
+
+/*int main(void)
+{
+	char dest[20];
+	const char *src = "Hello, world!";
+	size_t size = 5;
+	size_t result = ft_strlcpy(dest, src, size);
+
+	printf("Copied string: %s\n", dest);
+	printf("Resulting length: %zu\n", result);
+	char dest2[20];
+	size_t rst = strlcpy(dest2, src, 5);
+	printf("Real function: %s\n", dest2);
+	printf("Real function: %zu\n", rst);
+	return (0);
 }*/
-
-size_t ft_strlcpy(char *dst, const char *src, size_t size)
-{
-    size_t i = 0;
-
-    while (i + 1 < size && src[i] != '\0')
-    {
-        dst[i] = src[i];
-        i++;
-    }
-
-    if (size > 0)
-        dst[i] = '\0';
-
-    while (src[i] != '\0')
-        i++;
-
-    return i;
-}
-
-#include <stdio.h>
-
-int main(void)
-{
-    char dest[20];
-    const char *src = "Hello, world!";
-    size_t size = 5;
-
-    size_t result = ft_strlcpy(dest, src, size);
-
-    printf("Copied string: %s\n", dest);
-    printf("Resulting length: %zu\n", result);
-
-    return 0;
-}

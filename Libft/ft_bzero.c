@@ -6,12 +6,11 @@
 /*   By: andjenna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 11:05:43 by andjenna          #+#    #+#             */
-/*   Updated: 2023/11/06 11:33:40 by andjenna         ###   ########.fr       */
+/*   Updated: 2023/11/07 02:57:25 by andjenna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include <libft.h>
-#include <stddef.h>
+#include "libft.h"
 
 void	ft_bzero(void *s, size_t n)
 {
@@ -25,8 +24,7 @@ void	ft_bzero(void *s, size_t n)
 	}
 }
 
-/*#include <stdio.h>
-
+/*
 int main(void)
 {
 	unsigned char buffer[10]; // Crée un tampon de 10 octets

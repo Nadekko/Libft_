@@ -6,19 +6,18 @@
 /*   By: andjenna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 14:43:25 by andjenna          #+#    #+#             */
-/*   Updated: 2023/11/02 14:51:34 by andjenna         ###   ########.fr       */
+/*   Updated: 2023/11/07 02:58:56 by andjenna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include "libft.h"
+#include "libft.h"
 
 int	ft_isdigit(int c)
 {
 	return (c >= '0' && c <= '9');
 }
 
-/*#include <stdio.h>
-
+/*
 int	main(void)
 {
 	char	c;
