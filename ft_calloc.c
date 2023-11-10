@@ -6,7 +6,7 @@
 /*   By: andjenna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 12:03:30 by andjenna          #+#    #+#             */
-/*   Updated: 2023/11/09 12:14:19 by andjenna         ###   ########.fr       */
+/*   Updated: 2023/11/10 15:06:52 by andjenna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,15 @@ void	*ft_calloc(size_t nmemb, size_t size)
 {
 	void	*s;
 
+	if (nmemb * size == 0)
+	{
+		s = malloc(0);
+		if (!s)
+			return (NULL);
+		return (s);
+	}
+	if (!nmemb || !size || ((nmemb * size) / size != nmemb))
+		return (NULL);
 	s = malloc(nmemb * size);
 	if (!s)
 		return (NULL);

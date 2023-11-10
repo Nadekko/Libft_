@@ -6,7 +6,7 @@
 /*   By: andjenna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 11:54:43 by andjenna          #+#    #+#             */
-/*   Updated: 2023/11/09 13:11:00 by andjenna         ###   ########.fr       */
+/*   Updated: 2023/11/10 14:32:11 by andjenna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ size_t	ft_strlen(const char *str)
 	int	len;
 
 	len = 0;
-	if (!str)
-		return (0);
 	while (str[len] != '\0')
 		len++;
 	return (len);

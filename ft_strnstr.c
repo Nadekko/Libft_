@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: andjenna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/09 11:55:17 by andjenna          #+#    #+#             */
-/*   Updated: 2023/11/09 19:38:28 by andjenna         ###   ########.fr       */
+/*   Created: 2023/11/10 13:28:00 by andjenna          #+#    #+#             */
+/*   Updated: 2023/11/10 14:43:53 by andjenna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,27 +16,26 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
 	size_t	i;
 	size_t	j;
-	char	*cpy;
 
 	i = 0;
 	j = 0;
-	cpy = NULL;
-	if (little[0] == '\0' || little == NULL)
+	if (!big && len == 0)
+		return (NULL);
+	if (!*little)
 		return ((char *)big);
-	while (len-- > 0 && big[i] && little[j])
+	while (big[i] && i < len)
 	{
-		j = 0;
-		while (big[i + j] == little[j] && big[i + j] && len > 0)
+		if (big[i] == little[j])
 		{
-			cpy = (char *)big + i;
-			j++;
+			while (little[j] && big[i + j] == little[j] && i + j < len)
+				j++;
+			if (!little[j])
+				return ((char *)&big[i]);
+			j = 0;
 		}
 		i++;
 	}
-	if (little[j] == '\0')
-		return (cpy);
-	else
-		return (NULL);
+	return (NULL);
 }
 
 /*int	main(void)

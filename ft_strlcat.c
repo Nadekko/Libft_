@@ -6,7 +6,7 @@
 /*   By: andjenna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 11:53:52 by andjenna          #+#    #+#             */
-/*   Updated: 2023/11/09 15:14:04 by andjenna         ###   ########.fr       */
+/*   Updated: 2023/11/10 14:35:37 by andjenna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	size_t	j;
 
 	i = 0;
+	if ((!src || !dst) && size == 0)
+		return (0);
 	while (dst[i] && i < size)
 		i++;
 	j = i;
