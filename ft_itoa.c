@@ -5,57 +5,65 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: andjenna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/11 20:36:42 by andjenna          #+#    #+#             */
-/*   Updated: 2023/11/11 20:38:09 by andjenna         ###   ########.fr       */
+/*   Created: 2023/11/11 19:35:11 by andjenna          #+#    #+#             */
+/*   Updated: 2023/11/11 21:47:47 by andjenna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int get_num_length(int n)
+static int	ft_digit_count(long n)
 {
-    int length = (n <= 0) ? 1 : 0;
+	int	digit;
 
-    while (n != 0)
-    {
-        n /= 10;
-        length++;
-    }
-
-    return length;
+	digit = 0;
+	if (n == 0)
+		return (1);
+	if (n < 0)
+	{
+		n = -n;
+		digit++;
+	}
+	while (n)
+	{
+		n /= 10;
+		digit++;
+	}
+	return ((int)digit);
 }
 
-char *ft_itoa(int n)
+char	*ft_itoa(int n)
 {
-    int length = get_num_length(n);
-    char *result = (char *)malloc(length + 1);
+	long	nb;
+	int	d_count;
+	char	*rst;
 
-    if (!result)
-        return (NULL);
-
-    result[length] = '\0';
-
-    if (n < 0)
-    {
-        result[0] = '-';
-        n = -n;
-    }
-
-    if (n == 0)
-    {
-        result[0] = '0';
-        return (result);
-    }
-
-    while (length > 1)
-    {
-        result[length - 1] = '0' + (n % 10);
-        n /= 10;
-        length--;
-    }
-
-    result[0] = '0' + n;
-
-    return (result);
+	nb = n;
+	d_count = ft_digit_count(n);
+	rst = (char *)malloc(d_count + 1);
+	if (!rst)
+		return (NULL);
+	rst[d_count] = '\0';
+	if (nb < 0)
+	{
+		rst[0] = '-';
+		nb = -nb;
+	}
+	if (nb == 0)
+		rst[0] = '0';
+	while (nb)
+	{
+		rst[--d_count] = 48 + (nb % 10);
+		nb /= 10;
+	}
+	return (rst);
 }
 
+/*#include <limits.h>
+int	main(void)
+{
+		int n = -2147483648;
+		printf("Integer : %d\n", n);
+		printf("string : %s\n", ft_itoa(n));
+	return (0);
+}*/

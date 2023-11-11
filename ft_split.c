@@ -6,7 +6,7 @@
 /*   By: andjenna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/11 17:06:20 by andjenna          #+#    #+#             */
-/*   Updated: 2023/11/11 19:32:33 by andjenna         ###   ########.fr       */
+/*   Updated: 2023/11/11 21:08:37 by andjenna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,8 @@ char	**ft_split(const char *str, char c)
 	char	**res;
 	int		words;
 
+	if (!str)
+		return (NULL);
 	words = count_words(str, c);
 	res = (char **)malloc(sizeof(char *) * (words + 1));
 	if (!res)
