@@ -34,8 +34,8 @@ static int	ft_digit_count(long n)
 
 char	*ft_itoa(int n)
 {
+	int		d_count;
 	long	nb;
-	int	d_count;
 	char	*rst;
 
 	nb = n;

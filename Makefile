@@ -9,7 +9,12 @@ SRCS = ft_isalnum.c ft_isprint.c ft_memcmp.c ft_strjoin.c ft_strmapi.c \
 	ft_toupper.c ft_calloc.c  ft_isdigit.c ft_memchr.c  ft_memset.c  \
 	ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c
 
+BSRCS = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c ft_lstadd_back.c \
+	ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c
+
 OBJS = $(SRCS:.c=.o)
+
+BOBJS = $(BSRCS:.c=.o)
 
 NAME = libft.a
 
@@ -19,19 +24,23 @@ $(NAME): $(OBJS)
 	ar rc $(NAME) $(OBJS)
 	ranlib $(NAME)
 
+bonus: $(BOBJS)
+	ar rc $(NAME) $(BOBJS)
+	ranlib $(NAME)
+
 so:
 	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRCS)
-	gcc -nostartfiles -shared -o libft.so $(OBJS)
+	gcc -nostartfiles -shared -o libft.so $(OBJS) $(BOBJS)
 
 %.o: %.c
 	$(CC) $(CFALGS) -c $< -o $@
 
 clean:
-	rm -f $(OBJS)
+	rm -f $(OBJS) $(BOBJS)
 
-fclean:
+fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re bonus
