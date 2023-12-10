@@ -6,7 +6,7 @@
 /*   By: andjenna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 13:28:00 by andjenna          #+#    #+#             */
-/*   Updated: 2023/11/10 14:43:53 by andjenna         ###   ########.fr       */
+/*   Updated: 2023/11/24 18:05:35 by andjenna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 
 	i = 0;
 	j = 0;
-	if (!big && len == 0)
+	if (!big || len == 0)
 		return (NULL);
 	if (!*little)
 		return ((char *)big);

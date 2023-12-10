@@ -6,13 +6,13 @@
 /*   By: andjenna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 11:48:25 by andjenna          #+#    #+#             */
-/*   Updated: 2023/11/09 15:26:38 by andjenna         ###   ########.fr       */
+/*   Updated: 2023/11/20 18:56:58 by andjenna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *nptr)
+int	ft_atoi(const char  *nptr)
 {
 	int	neg;
 	int	res;

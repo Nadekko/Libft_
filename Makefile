@@ -28,10 +28,6 @@ bonus: $(BOBJS)
 	ar rc $(NAME) $(BOBJS)
 	ranlib $(NAME)
 
-so:
-	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRCS)
-	gcc -nostartfiles -shared -o libft.so $(OBJS) $(BOBJS)
-
 %.o: %.c
 	$(CC) $(CFALGS) -c $< -o $@
 

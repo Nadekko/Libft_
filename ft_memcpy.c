@@ -6,7 +6,7 @@
 /*   By: andjenna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 11:52:33 by andjenna          #+#    #+#             */
-/*   Updated: 2023/11/10 14:38:54 by andjenna         ###   ########.fr       */
+/*   Updated: 2023/11/24 18:08:55 by andjenna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 
 	s = src;
 	d = dest;
-	if (!src && !dest)
+	if (!src || !dest)
 		return (NULL);
 	while (n-- > 0)
 		*d++ = *s++;
